@@ -1,4 +1,5 @@
-"use client"
+import Image from "next/image";
+import React from "react"
 
 type Step = {
   number: number;
@@ -34,9 +35,11 @@ function StepCard({ step, isEven }: { step: Step; isEven: boolean }) {
         >
             {/* Image */}
             <div className="w-24 sm:w-40 flex-shrink-0 flex justify-center items-center bg-gray-50">
-                <img
-                    src={step.image}
+                <Image
+                    src={step.image.startsWith("/") ? step.image : `/${step.image}`}
                     alt={step.title}
+                    width={160}
+                    height={150}
                     className="w-full h-[150px] object-cover object-top"
                 />
             </div>

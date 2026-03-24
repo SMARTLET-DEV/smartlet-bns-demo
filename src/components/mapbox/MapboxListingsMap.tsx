@@ -1,5 +1,5 @@
 import mapboxgl from "mapbox-gl";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import MapPropertyPreviewCard from "./MapPropertyPreviewCard";
 import { useRouter } from "next/navigation";
@@ -79,7 +79,7 @@ export default function MapboxListingsMap({
     };
 
     // Function to add markers to the map
-    const addMarkersToMap = (
+    const addMarkersToMap = useCallback((
         map: mapboxgl.Map,
         coordinates: [number, number][],
         properties: PropertyMarkerData[]
@@ -186,7 +186,7 @@ export default function MapboxListingsMap({
             markersRef.current.push(marker);
             popupsRef.current.push(popup);
         });
-    };
+    }, []);
 
     useEffect(() => {
         if (hasInitialized.current) return;
@@ -338,7 +338,7 @@ export default function MapboxListingsMap({
             popupsRef.current = [];
             map.remove();
         };
-    }, []);
+    }, [addMarkersToMap, memoizedCenter, memoizedMarkers, propertyData]);
 
     // Effect to update markers when memoizedMarkers changes
     useEffect(() => {
@@ -348,8 +348,7 @@ export default function MapboxListingsMap({
     }, [
         memoizedMarkers,
         propertyData,
-        mapRef.current,
-        hasInitialized.current,
+        addMarkersToMap,
         isStyleLoaded,
     ]);
 

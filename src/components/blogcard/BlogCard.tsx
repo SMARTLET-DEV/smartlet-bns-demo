@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
@@ -70,7 +71,13 @@ export const BlogCard: React.FC<BlogCardProps> = ({
                 className="w-full h-[220px] block rounded-2xl overflow-hidden"
                 style={{ outline: "none", boxShadow: "none" }}
             >
-                <img src={src} alt={title} className="w-full h-full object-cover rounded-2xl" />
+                <Image
+                    src={src}
+                    alt={title}
+                    width={400}
+                    height={220}
+                    className="w-full h-full object-cover rounded-2xl"
+                />
             </Link>
 
             <div className="pt-4 pr-4 pb-4 flex flex-col flex-1 space-y-2">

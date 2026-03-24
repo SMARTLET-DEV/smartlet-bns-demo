@@ -1,5 +1,4 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -81,9 +80,11 @@ export default function Footer() {
                         <div className="flex flex-col text-muted border-b sm:border-b-0 border-gray-300 pb-7">
                             <Link href="/" className="w-fit h-fit">
                                 <div className="w-42 h-fit">
-                                    <img
+                                    <Image
                                         src="/logos/sL Logo Font.png"
                                         alt="SmartLET Logo"
+                                        width={168}
+                                        height={48}
                                         className="w-full h-full object-contain"
                                     />
                                 </div>

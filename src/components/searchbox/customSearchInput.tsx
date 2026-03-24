@@ -55,7 +55,7 @@ export const CustomSearchInput: React.FC<CustomSearchInputProps> = ({
         if (pathname.includes("properties")) {
             setIsSuggestionVisible(false);
         }
-    }, [pathname, searchParams]);
+    }, [pathname, searchParams, setIsSuggestionVisible]);
 
     // For server-side rendering safety (Next.js)
     const isClient = typeof window !== "undefined";

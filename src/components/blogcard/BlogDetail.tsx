@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 
@@ -37,9 +38,11 @@ const BlogDetail: React.FC<BlogDetailProps> = ({
                         className="block w-full"
                         style={{ outline: "none", boxShadow: "none" }}
                     >
-                        <img
+                        <Image
                             src={src}
                             alt={title}
+                            width={520}
+                            height={280}
                             className="w-full h-[220px] md:h-[280px] object-cover rounded-3xl"
                         />
                     </Link>

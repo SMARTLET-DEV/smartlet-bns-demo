@@ -85,7 +85,7 @@ function TestModal({
                             Login
                         </Button>
                         <p className="text-muted font-medium text-center mt-3">
-                            Don't have an account?{" "}
+                            Don&apos;t have an account?{" "}
                             <Button
                                 type="button"
                                 variant="ghost"

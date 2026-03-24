@@ -1,4 +1,4 @@
-"use client"
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 type Step = {
@@ -174,9 +174,11 @@ function StepCard({
             {/* Phone mockup */}
             <div className="flex-shrink-0 relative">
                 <div className="w-72 h-[650px] relative overflow-hidden">
-                    <img
-                        src={step.image}
+                    <Image
+                        src={step.image.startsWith("/") ? step.image : `/${step.image}`}
                         alt={step.title}
+                        width={288}
+                        height={500}
                         className="w-full h-[500px] object-cover object-top"
                     />
                 </div>

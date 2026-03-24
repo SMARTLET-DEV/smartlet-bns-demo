@@ -10,9 +10,9 @@ export default function PhilosophySection() {
                 <div className="lg:w-5/12 text-left">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-6">Our Philosophy</h2>
                     <p className="text-[#5A5A5A] mb-4 text-base leading-relaxed">
-At OPENDOOR, we don’t just build features, we build for people. We believe that behind every service request, rental agreement, or moving box is a story that matters. That’s why everything we do is guided by empathy, efficiency, and the belief that simple, well-built systems can unlock massive value for people’s everyday lives.                    </p>
+At OPENDOOR, we don&apos;t just build features, we build for people. We believe that behind every service request, rental agreement, or moving box is a story that matters. That&apos;s why everything we do is guided by empathy, efficiency, and the belief that simple, well-built systems can unlock massive value for people&apos;s everyday lives.                    </p>
                     <p className="text-[#5A5A5A] mb-6 text-base leading-relaxed">
-We're here to prove that meaningful change can be made, even in industries that feel stuck. We do it by asking better questions, hiring incredible people, and committing to actions that move us  and our beloved city forward.                    </p>
+We&apos;re here to prove that meaningful change can be made, even in industries that feel stuck. We do it by asking better questions, hiring incredible people, and committing to actions that move us  and our beloved city forward.                    </p>
                 </div>
 
                 {/* Image Column */}

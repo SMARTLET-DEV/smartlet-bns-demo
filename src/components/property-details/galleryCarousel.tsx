@@ -50,13 +50,6 @@ export function GalleryCarousel({
                                     className="w-full h-full"
                                     onContextMenu={(e) => e.preventDefault()}
                                 >
-                                    {/* <img
-                  src={data.src}
-                  alt={`Property ${index + 1}`}
-                  //   width={1000}
-                  //   height={1000}
-                  className="object-cover transition-all duration-500"
-                /> */}
                                 </div>
                             </div>
                         </CarouselItem>

@@ -31,7 +31,7 @@ export default function MapboxCircle({
             container: mapContainerRef.current!,
             style: "mapbox://styles/mapbox/streets-v11",
             center: [longitude, latitude],
-            zoom,
+            zoom: initialZoom.current,
         });
 
         mapRef.current = map;

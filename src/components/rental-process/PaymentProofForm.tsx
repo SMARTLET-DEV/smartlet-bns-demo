@@ -127,7 +127,7 @@ export function PaymentProofForm({
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                            <Label htmlFor="payerAccount">Sender's Account Number</Label>
+                            <Label htmlFor="payerAccount">Sender&apos;s Account Number</Label>
                             <Input
                                 id="payerAccount"
                                 placeholder="e.g. 123456789"

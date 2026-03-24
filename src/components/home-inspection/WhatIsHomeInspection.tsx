@@ -44,7 +44,7 @@ export default function WhatIsHomeInspectionSection() {
               Home Inspection
                         </h2>
                         <p className="text-base sm:text-lg font-light text-gray-700">
-              Here's how our home inspection service protects you and keeps your
+              Here&apos;s how our home inspection service protects you and keeps your
               rental experience stress-free.
                         </p>
                     </div>

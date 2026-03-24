@@ -19,7 +19,7 @@ const Footer = () => {
                     Ready to Find Your Perfect Home?
                 </p>
                 <p className="lg:text-2xl text-base mt-4">
-                    Smart, simple, and stress-free — that's what OPENDOOR is all
+                    Smart, simple, and stress-free — that&apos;s what OPENDOOR is all
                     about.
                 </p>
                 <div className="flex flex-col lg:flex-row lg:items-center lg:mt-10 mt-6 gap-6">
@@ -36,20 +36,8 @@ const Footer = () => {
                         asChild={user ? false : true}
                     >
                         {user ? (
-                            <Link
-                                href={
-                                    user.role === "OWNER"
-                                        ? "/property-list"
-                                        : user.role === "RENTER"
-                                            ? "/appointments"
-                                            : "/profile"
-                                }
-                            >
-                                {user.role === "OWNER"
-                                    ? "List Your Property"
-                                    : user.role === "RENTER"
-                                        ? "See Your Appointments"
-                                        : "Profile"}
+                            <Link href="/">
+                                Go to Home
                             </Link>
                         ) : (
                             <span

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
     Carousel,
     CarouselContent,
@@ -23,9 +24,11 @@ export function FloorPlanCarousel({ images }: FloorPlanCarouselProps) {
                     <CarouselItem key={index}>
                         <div className="max-w-full w-[83%] mx-auto">
                             {/* Use img instead of background */}
-                            <img
+                            <Image
                                 src={data.src}
                                 alt={data.title}
+                                width={800}
+                                height={550}
                                 className="w-full max-h-[550px] object-contain mx-auto"
                                 onContextMenu={(e) => e.preventDefault()}
                                 onDragStart={(e) => e.preventDefault()}

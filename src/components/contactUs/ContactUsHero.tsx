@@ -14,7 +14,7 @@ export default function ContactUsHero() {
               Contact Us
                         </h1>
                         <p className="text-lg text-gray-700 mb-6">
-              Whether you're a tenant, landlord, or curious collaborator, our team is ready to support your journey — with transparency, care, and solutions that put people first.
+              Whether you&apos;re a tenant, landlord, or curious collaborator, our team is ready to support your journey — with transparency, care, and solutions that put people first.
                         </p>
                         <div className="w-full max-w-xl flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                             <ContactCard />

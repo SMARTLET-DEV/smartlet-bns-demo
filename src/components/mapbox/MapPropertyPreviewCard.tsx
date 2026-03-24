@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BedIcon, SizeIcon } from "@/assets/icons";
 
 interface MapPropertyPreviewCardProps {
@@ -25,9 +26,11 @@ export default function MapPropertyPreviewCard({
         >
             {/* Thumbnail */}
             <div className="w-[70px] flex-shrink-0 relative self-stretch">
-                <img
+                <Image
                     src={thumbnail}
                     alt="Property"
+                    width={70}
+                    height={100}
                     className="w-full h-full object-cover"
                 />
             </div>

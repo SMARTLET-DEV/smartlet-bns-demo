@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface Step {
@@ -104,9 +105,11 @@ export default function HowOpendoorJourney({ className = "" }: JourneyProps) {
               */}
                         </div>
                         <div className="mt-8 w-full h-110 overflow-hidden flex justify-center">
-                            <img
-                                src={step.imageSrc}
+                            <Image
+                                src={step.imageSrc.startsWith("/") ? step.imageSrc : `/${step.imageSrc}`}
                                 alt={step.imageAlt}
+                                width={240}
+                                height={440}
                                 className="w-full max-w-[240px] h-auto object-cover object-top"
                             />
                         </div>

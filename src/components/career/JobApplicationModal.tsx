@@ -161,7 +161,7 @@ export function JobApplicationModal({
                         <DialogDescription className="text-base text-gray-600">
               Your application has been submitted successfully.
                             <br />
-              Our team will review it and contact you if there's a match.
+              Our team will review it and contact you if there&apos;s a match.
                         </DialogDescription>
                         <Button onClick={onClose} className="mt-4 min-w-[120px]">
               Done

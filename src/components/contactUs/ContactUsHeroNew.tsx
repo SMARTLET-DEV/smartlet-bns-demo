@@ -64,7 +64,7 @@ export default function ContactUsHeroNew({
                 <p
                     className="mt-3 sm:mt-4 px-2 sm:px-4 md:px-0 text-sm sm:text-base md:text-lg text-black font-normal max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto text-center leading-relaxed"
                 >
-                    Whether you're a tenant, homeowner, or curious collaborator, our
+                    Whether you&apos;re a tenant, homeowner, or curious collaborator, our
                     team is ready to <br className="hidden sm:block" />
                     support your journey - with transparency, care, and solutions
                     that put people first.

@@ -54,7 +54,7 @@ export default function HelpSection({ isScrolling }: { isScrolling: boolean }) {
                 <div className="text-left">
                     <h2 className="text-lg font-normal text-gray-900">
                         Rent with OPENDOOR -{" "}
-                        <span className="font-normal">It's free!</span>
+                        <span className="font-normal">It&apos;s free!</span>
                     </h2>
                 </div>
                 <div className="w-full md:w-auto">

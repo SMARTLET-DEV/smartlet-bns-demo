@@ -95,9 +95,11 @@ export default function SignupModal() {
         (state: RootState) => state.authModals.signupModalOpen
     );
 
+    const role = form.watch("role");
+
     useEffect(() => {
-        console.log(form.watch("role"));
-    }, [form.watch("role")]);
+        console.log(role);
+    }, [role]);
 
     return (
         <Dialog

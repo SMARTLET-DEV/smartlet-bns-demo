@@ -5,6 +5,13 @@ import FloatingWhatsAppButton from "@/components/utils/FloatingWhatsAppButton";
 import ClientWrapper from "./ClientWrapper";
 import "mapbox-gl/dist/mapbox-gl.css";
 import ScrollToTopOnRouteChange from "@/components/utils/ScrollToTopRouteChange";
+import { Urbanist } from "next/font/google";
+
+const urbanist = Urbanist({
+    subsets: ["latin"],
+    display: "swap",
+    weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
     title: "OPENDOOR",
@@ -68,20 +75,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <head>
-                {/* Urbanist Font */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossOrigin="anonymous"
-                />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap"
-                    rel="stylesheet"
-                />
-            </head>
-            <body className="bg-white" style={{ fontFamily: "Urbanist, sans-serif" }}>
+            <body className={`${urbanist.className} bg-white`}>
                 <Providers>
                     <FloatingWhatsAppButton />
                     <ScrollToTopOnRouteChange />

@@ -93,7 +93,7 @@ export default function RequestModal({
                 requestMessage: "",
             });
         }
-    }, [user]);
+    }, [user, form]);
 
     const handleSubmitMessage = async (
         formData: z.infer<typeof formSchema>

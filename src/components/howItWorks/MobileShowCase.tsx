@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const screens = [
@@ -13,9 +14,11 @@ export default function MobileShowcase() {
             <div className="grid grid-cols-4 gap-2">
                 {screens.map((src, i) => (
                     <div key={i} className="w-full w-full h-40 overflow-hidden">
-                        <img
-                            src={src}
+                        <Image
+                            src={src.startsWith('/') ? src : `/${src}`}
                             alt={`mobile screen ${i + 1}`}
+                            width={100}
+                            height={160}
                             className="w-full h-auto object-cover shadow-lg"
                         />
                     </div>

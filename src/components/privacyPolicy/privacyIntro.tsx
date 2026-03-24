@@ -7,10 +7,10 @@ export default function PrivacyIntro() {
                 <strong>Effective Date:</strong> 15 July 2025
             </p>
             <p>
-        This Privacy Policy outlines how <strong>OPENDOOR Ltd.</strong> ("OPENDOOR", "we", "our", "us") collects, processes, stores, shares, and protects your personal information. By using our platform, you agree to the collection and use of information in accordance with this policy.
+        This Privacy Policy outlines how <strong>OPENDOOR Ltd.</strong> (&quot;OPENDOOR&quot;, &quot;we&quot;, &quot;our&quot;, &quot;us&quot;) collects, processes, stores, shares, and protects your personal information. By using our platform, you agree to the collection and use of information in accordance with this policy.
             </p>
             <p>
-        OPENDOOR is committed to ensuring the privacy, confidentiality, and security of its users’ data—be they renters, homeowners, or service partners.
+        OPENDOOR is committed to ensuring the privacy, confidentiality, and security of its users&apos; data—be they renters, homeowners, or service partners.
             </p>
         </div>
     );

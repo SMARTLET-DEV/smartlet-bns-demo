@@ -13,7 +13,8 @@ const useScrollPast = (
     const [scrolledPast, setScrolledPast] = useState(false);
 
     useEffect(() => {
-        if (!targetRef.current || percent < 0 || percent > 100) return;
+        const currentTarget = targetRef.current;
+        if (!currentTarget || percent < 0 || percent > 100) return;
 
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -30,12 +31,12 @@ const useScrollPast = (
             }
         );
 
-        observer.observe(targetRef.current);
+        observer.observe(currentTarget);
 
         return () => {
-            if (targetRef.current) observer.unobserve(targetRef.current);
+            if (currentTarget) observer.unobserve(currentTarget);
         };
-    }, [targetRef, percent]);
+    }, [targetRef, percent, immediateDisconnect]);
 
     return scrolledPast;
 };

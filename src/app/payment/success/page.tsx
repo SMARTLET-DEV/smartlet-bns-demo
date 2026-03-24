@@ -24,7 +24,7 @@ const PaymentSuccessPage = ({ searchParams }: { searchParams: any }) => {
             break;
         }
         }
-    }, [searchParams]);
+    }, [searchParams, getServiceReceipt, serviceRequestId, tran_id, type]);
 
     useEffect(() => {
         // Send message to parent window for all payment types

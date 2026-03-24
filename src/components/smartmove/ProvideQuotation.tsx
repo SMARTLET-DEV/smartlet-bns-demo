@@ -1,5 +1,4 @@
-"use client";
-
+import Image from "next/image";
 import { SmartmoveCircleTickIcon } from "@/assets/icons";
 import { Button } from "../ui/button";
 
@@ -42,9 +41,11 @@ const ProvideQuotationSection = () => {
                     </Button>
                 </div>
                 <div className="relative">
-                    <img
+                    <Image
                         src={"/smartmove-img-2.png"}
                         alt="provide-quotation"
+                        width={600}
+                        height={400}
                         className="w-full h-full object-cover"
                     />
                 </div>

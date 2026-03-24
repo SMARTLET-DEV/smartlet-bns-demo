@@ -110,7 +110,7 @@ const propertyApi = baseApi.injectEndpoints({
       queryFn: () => ({ data: { properties: dummyProperties, pagination: { totalCount: dummyProperties.length } } }),
     }),
     getSingleProperty: builder.query<any, string>({
-      queryFn: (id) => ({ data: dummyProperties.find(p => p.id === id) || dummyProperties[0] }),
+      queryFn: (id) => ({ data: { property: dummyProperties.find(p => p.id === id) || dummyProperties[0], similarProperties: [] } }),
     }),
     getPropertiesByOwner: builder.query<
       { properties: any[]; pagination: { totalCount: number } },

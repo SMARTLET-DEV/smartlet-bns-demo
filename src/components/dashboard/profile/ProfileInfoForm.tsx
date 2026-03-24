@@ -264,7 +264,7 @@ const ProfileInfoForm = () => {
                                 type="button"
                                 onClick={handleForgotPassword}
                                 disabled={isForgotPasswordLoading}
-                                className="bg-[#e8566f] text-white border border-primary hover:bg-primary font-normal rounded-lg transition w-fit self-end"
+                                className="bg-[#CBC3E3] text-white border border-primary hover:bg-primary font-normal rounded-lg transition w-fit self-end"
                             >
                                 {isForgotPasswordLoading
                                     ? "Loading..."

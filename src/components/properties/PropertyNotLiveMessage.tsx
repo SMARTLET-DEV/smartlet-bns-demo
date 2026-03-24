@@ -11,7 +11,7 @@ export default function PropertyNotLiveMessage() {
         </h2>
         <Link
           href="/"
-          className="text-[#e8566f] font-normal text-lg hover:underline transition-all"
+          className="text-[#CBC3E3] font-normal text-lg hover:underline transition-all"
         >
           Go back to home
         </Link>

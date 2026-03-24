@@ -39,7 +39,7 @@ export default function CallSupportDialog() {
         </p>
         <Button
           onClick={handleCallClick}
-          className="flex items-center gap-2 bg-[#e8566f] hover:bg-[#d14560] text-white px-5 py-3 rounded-md shadow-none hover:shadow-none focus:shadow-none active:shadow-none outline-none"
+          className="flex items-center gap-2 bg-[#CBC3E3] hover:bg-[#d14560] text-white px-5 py-3 rounded-md shadow-none hover:shadow-none focus:shadow-none active:shadow-none outline-none"
         >
           <PhoneIcon fill="white" className="w-5 h-5" />
           Call Now

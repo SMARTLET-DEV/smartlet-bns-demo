@@ -73,7 +73,7 @@ const ApplicationCancellationModal = () => {
                     <Button
                         onClick={handleCancelApplication}
                         disabled={isLoading}
-                        className="bg-[#e8566f] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
+                        className="bg-[#CBC3E3] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
                     >
                         {isLoading ? (
                             <Loader2 className="w-4 h-4 animate-spin" />

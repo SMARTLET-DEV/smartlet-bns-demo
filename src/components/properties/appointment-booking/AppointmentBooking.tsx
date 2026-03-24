@@ -279,7 +279,7 @@ export default function AppointmentBooking() {
                                 </Button>
                                 <Button
                                     type="submit"
-                                    className="bg-[#e8566f] text-white border border-primary hover:bg-primary font-normal rounded-lg transition cursor-pointer"
+                                    className="bg-[#CBC3E3] text-white border border-primary hover:bg-primary font-normal rounded-lg transition cursor-pointer"
                                     disabled={isLoading}
                                 >
                                     {isLoading ? (

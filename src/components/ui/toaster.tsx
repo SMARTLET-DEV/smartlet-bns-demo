@@ -24,12 +24,12 @@ export function Toaster() {
         return (
           <Toast key={id} variant={variant} {...props}   className="flex items-center gap-3">
             {variant === "success" && (
-              <div className="flex-shrink-0 w-8 h-8 bg-[#e8566f] rounded-full flex items-center justify-center">
+              <div className="flex-shrink-0 w-8 h-8 bg-[#CBC3E3] rounded-full flex items-center justify-center">
                 <TickIcon className="h-5 w-5 text-white" />
               </div>
             )}
             {variant === "destructive" && (
-              <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e8566f' }}>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#CBC3E3' }}>
                 <X className="h-5 w-5 text-white" />
               </div>
             )}

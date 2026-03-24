@@ -155,7 +155,7 @@ export function SearchBar({
                     <Button
                         onClick={onSearchClick}
                         disabled={false}
-                        className="pointer-events-auto bg-[#e8566f] hover:bg-primary font-normal border border-primary sm:font-normal text-base sm:text-base h-[48px] rounded-lg transition w-full sm:w-[160px] flex-1 sm:flex-none"
+                        className="pointer-events-auto bg-[#CBC3E3] hover:bg-primary font-normal border border-primary sm:font-normal text-base sm:text-base h-[48px] rounded-lg transition w-full sm:w-[160px] flex-1 sm:flex-none"
                     >
                         {primarybuttonLabel}
                     </Button>

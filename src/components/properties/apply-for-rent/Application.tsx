@@ -278,7 +278,7 @@ export default function Application() {
                     <div></div>
                     <Button
                         type="submit"
-                        className="h-fit cursor-pointer bg-[#e8566f] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
+                        className="h-fit cursor-pointer bg-[#CBC3E3] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
                         disabled={isLoading || isUpdatingProfile}
                     >
                         {isLoading || isUpdatingProfile ? (

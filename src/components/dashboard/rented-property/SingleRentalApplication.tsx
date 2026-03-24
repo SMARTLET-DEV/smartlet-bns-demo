@@ -267,7 +267,7 @@ export default function SingleRentalApplication({
                     <div className="hidden lg:flex gap-5">
                         <Button 
                             onClick={handleViewApplication}
-                            className="bg-[#e8566f] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
+                            className="bg-[#CBC3E3] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
                         >
                             View Application
                         </Button>
@@ -289,7 +289,7 @@ export default function SingleRentalApplication({
                 <div className="flex gap-5">
                     <Button 
                         onClick={handleViewApplication}
-                        className="bg-[#e8566f] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
+                        className="bg-[#CBC3E3] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
                     >
                         View Application
                     </Button>

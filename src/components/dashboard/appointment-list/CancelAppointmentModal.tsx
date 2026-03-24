@@ -83,7 +83,7 @@ const CancelAppointmentModal = () => {
                     <Button 
                         onClick={handleCancelClick} 
                         disabled={isCancelling}
-                        className="bg-[#e8566f] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
+                        className="bg-[#CBC3E3] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
                     >
                         {isCancelling ? (
                             <Loader2 className="w-4 h-4 animate-spin" />

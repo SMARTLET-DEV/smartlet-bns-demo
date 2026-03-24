@@ -109,7 +109,7 @@ export default function SharePropertyDialog() {
             >
               <Button
                 size="icon"
-                className="bg-transparent border border-black hover:border-[#eb4763] rounded-md transition-colors w-12 h-12"
+                className="bg-transparent border border-black hover:border-[#CBC3E3] rounded-md transition-colors w-12 h-12"
               >
                 <FacebookNew fill="black" className="w-7 h-7" />
               </Button>
@@ -124,7 +124,7 @@ export default function SharePropertyDialog() {
             >
               <Button
                 size="icon"
-                className="bg-transparent border border-black hover:border-[#eb4763] rounded-md transition-colors w-12 h-12"
+                className="bg-transparent border border-black hover:border-[#CBC3E3] rounded-md transition-colors w-12 h-12"
               >
                 <WhatsappIcon className="w-7 h-7 text-black" />
               </Button>
@@ -139,7 +139,7 @@ export default function SharePropertyDialog() {
             >
               <Button
                 size="icon"
-                className="bg-transparent border border-black hover:border-[#eb4763] rounded-md transition-colors w-12 h-12"
+                className="bg-transparent border border-black hover:border-[#CBC3E3] rounded-md transition-colors w-12 h-12"
               >
                 <LinkedinIcon fill="black" className="w-7 h-7" />
               </Button>

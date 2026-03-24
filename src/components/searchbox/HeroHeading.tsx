@@ -60,7 +60,7 @@ export function HeroHeading({
                         <div className="relative">
                             <span className="whitespace-nowrap">{title}</span>
                             <span className="absolute left-full ml-3 top-0 whitespace-nowrap">
-                                <span className="inline-block text-[#e8566f]">
+                                <span className="inline-block text-[#CBC3E3]">
                                     {displayedText}
                                 </span>
                             </span>

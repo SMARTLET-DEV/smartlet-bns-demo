@@ -2,7 +2,7 @@ import Select from "react-select";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 // Brand color and light shade
-const BRAND_COLOR = "#e8566f";
+const BRAND_COLOR = "#CBC3E3";
 const BRAND_LIGHT = "#fde8ec";
 // Tailwind's gray-200
 const GRAY_200 = "#e5e7eb";

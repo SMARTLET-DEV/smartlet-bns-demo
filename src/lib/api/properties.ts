@@ -23,6 +23,9 @@ const dummyProperties = [
     latitude: 23.7940,
     longitude: 90.4043,
     packageType: "PREMIUM",
+    viewStatus: "APPROVED",
+    isVisible: true,
+    isPaused: false,
   },
   {
     id: "dummy-commercial-1",
@@ -48,6 +51,9 @@ const dummyProperties = [
     latitude: 23.7925,
     longitude: 90.4125,
     packageType: "PREMIUM",
+    viewStatus: "APPROVED",
+    isVisible: true,
+    isPaused: false,
   }
 ];
 

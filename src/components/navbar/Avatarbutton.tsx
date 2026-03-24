@@ -1,9 +1,7 @@
 "use client";
 
 import {
-    DashboardIcon,
     LogoutIcon,
-    ProfileIcon,
     UserIcon,
 } from "@/assets/icons";
 import {
@@ -14,7 +12,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { logout } from "@/redux/reducers/auth/authSlice";
-import { useGetProfileDataQuery } from "@/redux/reducers/profile/profileApi";
 import { RootState } from "@/redux/store";
 import Image from "next/image";
 import Link from "next/link";
@@ -47,18 +44,6 @@ const getAvatarMenuItems = (
     logoutHandler: () => void,
     user: any
 ): AvatarMenuItem[] => [
-    {
-        label: "Profile",
-        type: "link",
-        href: "/profile",
-        icon: <ProfileIcon className="w-4 h-4" />,
-    },
-    {
-        label: "Dashboard",
-        type: "link",
-        href: user.role === "OWNER" ? "/property-list" : "/appointments",
-        icon: <DashboardIcon className="w-4 h-4" />,
-    },
     {
         label: "Logout",
         type: "action",
@@ -98,24 +83,12 @@ export function AvatarButton({ variant = "default" }: AvatarButtonProps) {
         }
     };
 
-    const { data: userProfileData } = useGetProfileDataQuery(user?.id);
-
     const avatarMenuItems = getAvatarMenuItems(handleLogout, user);
     
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                {userProfileData?.profile?.avatar ? (
-                    <div className="relative w-9 h-9 rounded-full">
-                        <Image
-                            src={userProfileData?.profile?.avatar}
-                            alt="profile"
-                            className="rounded-full object-cover select-none cursor-pointer"
-                            fill
-                        />
-                    </div>
-                ) : (
                     <UserIcon
                         className={cn(
                             "w-8 h-8 cursor-pointer",
@@ -124,7 +97,6 @@ export function AvatarButton({ variant = "default" }: AvatarButtonProps) {
                                 : "text-primary-foreground"
                         )}
                     />
-                )}
             </DropdownMenuTrigger>
 
             <DropdownMenuContent

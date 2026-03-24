@@ -5,9 +5,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/hooks/useToast";
 import {
-    useGetProfileDataQuery,
-} from "@/redux/reducers/profile/profileApi";
-import {
     setMakeAnOffer,
 } from "@/redux/reducers/property/propertySlice";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,11 +39,13 @@ const offerSchema = z.object({
 type OfferFormData = z.infer<typeof offerSchema>;
 
 export default function OfferForm() {
+    const user = useSelector((state: any) => state.auth.user);
+
     const form = useForm<OfferFormData>({
         resolver: zodResolver(offerSchema),
         defaultValues: {
-            name: "",
-            contactNo: "",
+            name: user?.name || "",
+            contactNo: user?.phone || "",
             rentOffer: 0,
             preferredDepositMonths: 2,
             preferredMoveInDate: new Date().toISOString(),
@@ -54,25 +53,22 @@ export default function OfferForm() {
         },
     });
 
-    const user = useSelector((state: any) => state.auth.user);
-
     if (!user) return null;
 
-    const { data: profileData } = useGetProfileDataQuery(user?.id);
     const { id: propertyId } = useParams();
 
     useEffect(() => {
-        if (user && profileData) {
+        if (user) {
             form.reset({
-                name: `${profileData?.profile.firstName || ""} ${profileData?.profile.lastName || ""}`.trim(),
-                contactNo: profileData?.profile.phone || "",
+                name: user?.name || "",
+                contactNo: user?.phone || "",
                 rentOffer: 0,
                 preferredDepositMonths: 2,
                 preferredMoveInDate: new Date().toISOString(),
                 additionalNotes: "",
             });
         }
-    }, [user, profileData]);
+    }, [user]);
 
     const dispatch = useDispatch();
     const { success, error } = useToast();

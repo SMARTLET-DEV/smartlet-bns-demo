@@ -2,47 +2,15 @@
 
 import { CheckCircleIcon } from "@/assets/icons";
 import { useGetServiceReceiptMutation } from "@/redux/reducers/property/propertyApi";
-import { useGetDepositInvoiceMutation } from "@/redux/reducers/rental-applications/RentalApplicationApi";
-import { setPaymentStatus } from "@/redux/reducers/rental-applications/RentalApplicationSlice";
-import { useGetRentInvoiceMutation } from "@/redux/reducers/rented-property/RentedPropertyApi";
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 const PaymentSuccessPage = ({ searchParams }: { searchParams: any }) => {
-    const dispatch = useDispatch();
-    const { tran_id, type, applicationId, rentalId, serviceRequestId } =
+    const { tran_id, type, serviceRequestId } =
         React.use<any>(searchParams);
-    const [getDepositInvoice] = useGetDepositInvoiceMutation();
-    const [getRentInvoice] = useGetRentInvoiceMutation();
     const [getServiceReceipt] = useGetServiceReceiptMutation();
 
     useEffect(() => {
         switch (type) {
-            case "SECURITY_DEPOSIT": {
-                async function fetchInvoice() {
-                    const { data } = await getDepositInvoice({
-                        tran_id,
-                        applicationId,
-                    });
-                    console.log("invoice data: ", data);
-                    window.open(data.data.receiptUrl, "_blank");
-                }
-                fetchInvoice();
-                break;
-            }
-            case "RENT": {
-                async function fetchInvoice() {
-                    console.log(tran_id, rentalId);
-                    const { data } = await getRentInvoice({
-                        tran_id,
-                        rentalId,
-                    });
-                    console.log("invoice data: ", data);
-                    window.open(data.data.receiptUrl, "_blank");
-                }
-                fetchInvoice();
-                break;
-            }
             case "SERVICE": {
                 async function fetchInvoice() {
                     const { data } = await getServiceReceipt({
@@ -66,8 +34,6 @@ const PaymentSuccessPage = ({ searchParams }: { searchParams: any }) => {
                 type: "PAYMENT_SUCCESS",
                 tran_id: tran_id,
                 paymentType: type,
-                ...(applicationId && { applicationId }),
-                ...(rentalId && { rentalId }),
                 ...(serviceRequestId && { serviceRequestId }),
             };
 
@@ -97,11 +63,8 @@ const PaymentSuccessPage = ({ searchParams }: { searchParams: any }) => {
             };
 
             sendMessage();
-
-            // Also dispatch payment status
-            dispatch(setPaymentStatus("paid"));
         }
-    }, [tran_id, type, applicationId, rentalId, serviceRequestId, dispatch]);
+    }, [tran_id, type, serviceRequestId]);
 
     function handleClosePage() {
         // Try to close the window

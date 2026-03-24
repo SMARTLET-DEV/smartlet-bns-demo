@@ -4,20 +4,10 @@ import {
   CalendarIcon,
   CopyIcon,
   GeoAltIcon,
-  HeartFilledIcon,
-  HeartIcon,
 } from "@/assets/icons";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import { changeLoginModalOpen } from "@/redux/reducers/authModals/authModalsSlice";
-import {
-  useCreateFavoriteListingMutation,
-  useDeleteFavoriteListingMutation,
-  useGetAllFavoritesByPropertyIdQuery,
-} from "@/redux/reducers/favorites/favoritesApi";
-import { RootState } from "@/redux/store";
 import { CheckIcon, FileText } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import SharePropertyDialog from "../property-details/sharePropertyDialog";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
@@ -50,59 +40,8 @@ export default function PropertyInfoCard({
   depositRequiredForMonths,
 }: PropertyInfoCardProps) {
   //console.log("Tags array:", tags);
-  const dispatch = useDispatch();
   const isMobile = useIsMobile();
-  const user: any = useSelector((state: RootState) => state.auth.user);
-  const isLoginModalOpen = useSelector(
-    (state: RootState) => state.authModals.loginModalOpen
-  );
-
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [favoriteId, setFavoriteId] = useState<any>("");
   const [copiedID, setCopiedID] = useState(false);
-
-  const {
-    data: favoriteData,
-    isLoading,
-    isError,
-    refetch,
-  } = useGetAllFavoritesByPropertyIdQuery(propertyId, { skip: !user });
-
-  const [createFavoriteListing] = useCreateFavoriteListingMutation();
-  const [deleteFavoriteListing] = useDeleteFavoriteListingMutation();
-
-  useEffect(() => {
-    if (favoriteData?.favoriteListings?.length > 0) {
-      setIsFavorite(true);
-      setFavoriteId(favoriteData.favoriteListings[0].id);
-    } else {
-      setIsFavorite(false);
-      setFavoriteId("");
-    }
-  }, [favoriteData]);
-
-  const handleFavorite = async () => {
-    if (!user) {
-      dispatch(changeLoginModalOpen(!isLoginModalOpen));
-      return;
-    }
-
-    if (!isFavorite) {
-      const favoriteRes = await createFavoriteListing({
-        property: propertyId,
-      }).unwrap();
-      if (favoriteRes.success) {
-        setIsFavorite(true);
-        setFavoriteId(favoriteRes.favoriteListing.id);
-      }
-    } else {
-      const favoriteRes = await deleteFavoriteListing(favoriteId).unwrap();
-      if (favoriteRes.success) {
-        setIsFavorite(false);
-        setFavoriteId("");
-      }
-    }
-  };
 
   return (
     <div className="w-full max-w-none md:max-w-[340px] lg:max-w-[410px] h-fit flex flex-col text-secondary bg-white rounded-2xl p-4 lg:sticky lg:top-20">
@@ -121,18 +60,6 @@ export default function PropertyInfoCard({
 
         <div className="flex items-center gap-2">
           <SharePropertyDialog />
-          {isMobile && (
-            <Button
-              onClick={handleFavorite}
-              className="bg-background hover:shadow-md cursor-pointer text-secondary text-sm rounded border-none"
-            >
-              {isFavorite ? (
-                <HeartFilledIcon className="w-5 h-5 text-primary hover:text-white" />
-              ) : (
-                <HeartIcon className="w-5 h-5 hover:text-white" />
-              )}
-            </Button>
-          )}
         </div>
       </div>
 

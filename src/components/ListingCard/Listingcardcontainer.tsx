@@ -4,12 +4,6 @@ import { Button } from "@/components/ui/button";
 import { useHasHydrated } from "@/hooks/useHasHydrated";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { cn } from "@/lib/utils";
-import { changeLoginModalOpen } from "@/redux/reducers/authModals/authModalsSlice";
-import {
-  useCreateFavoriteListingMutation,
-  useDeleteFavoriteListingMutation,
-  useGetAllFavoritesQuery,
-} from "@/redux/reducers/favorites/favoritesApi";
 import { markSmartViewClicked } from "@/redux/reducers/property/smartViewSlice";
 import { RootState } from "@/redux/store";
 import { useEffect, useRef, useState, type ComponentProps } from "react";
@@ -73,17 +67,10 @@ export function Listingcardcontainer({
   const sanitizedImages = Array.isArray(images)
     ? images.map((u) => sanitizeUrl(u)).filter((u) => !!u)
     : [];
-  const user = useSelector((state: RootState) => state.auth.user);
-  const isLoginModalOpen = useSelector(
-    (state: RootState) => state.authModals.loginModalOpen
-  );
-  // const params = useParams();
-  // const propertyId: any = params.id;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [favoriteId, setFavoriteId] = useState<any>("");
   const isMobile = useIsMobile();
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -96,34 +83,6 @@ export function Listingcardcontainer({
   const prevImage = () => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
-
-  // const { data: favoriteData } = useGetAllFavoritesByPropertyIdQuery(
-  //     propertyId,
-  //     { skip: !user }
-  // );
-  const { data: favoriteData } = useGetAllFavoritesQuery();
-
-  const [createFavoriteListing] = useCreateFavoriteListingMutation();
-
-  const [deleteFavoriteListing] = useDeleteFavoriteListingMutation();
-
-  useEffect(() => {
-    if (favoriteData?.favoriteListings?.length > 0) {
-      setIsFavorite(
-        favoriteData?.favoriteListings.some(
-          (favorite: any) => favorite.property.id === propertyId
-        )
-      );
-      setFavoriteId(
-        favoriteData?.favoriteListings.find(
-          (favorite: any) => favorite.property.id === propertyId
-        )?.id
-      );
-    } else {
-      setIsFavorite(false);
-      setFavoriteId("");
-    }
-  }, [favoriteData]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.changedTouches[0].clientX;
@@ -154,29 +113,6 @@ export function Listingcardcontainer({
   const shouldShowThumbnail =
     variant === "default" && hoveredCardId !== id && sanitizedThumbnail;
 
-  const handleFavorite = async () => {
-    if (!user) {
-      dispatch(changeLoginModalOpen(!isLoginModalOpen));
-      return;
-    } else {
-      if (!isFavorite) {
-        let favoriteData = await createFavoriteListing({
-          property: propertyId,
-        }).unwrap();
-        if (favoriteData.success) {
-          setIsFavorite(true);
-          setFavoriteId(favoriteData?.favoriteListing.id);
-        }
-      } else {
-        let favoriteData = await deleteFavoriteListing(favoriteId).unwrap();
-        if (favoriteData.success) {
-          setIsFavorite(false);
-          setFavoriteId("");
-        }
-      }
-    }
-  };
-
   const glowClass =
     hasHydrated && !smartViewAlreadyClicked ? "glare-pulse--white" : "";
 
@@ -190,20 +126,6 @@ export function Listingcardcontainer({
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Heart Button */}
-        {(variant === "default" || !isMobile) && (
-          <Button
-            className={`absolute top-3 left-3 bg-secondary/15 backdrop-blur-xs rounded-md px-1 py-1 text-sm text-primary-foreground font-medium z-10 border-0 group-hover:text-primary ${!isFavorite ? "hover:text-white" : " group-hover:bg-white"
-              } transition `}
-            onClick={handleFavorite}
-          >
-            {isFavorite ? (
-              <HeartFilledIcon className="w-5 h-5 text-primary" />
-            ) : (
-              <HeartIcon className="w-5 h-5 hover:text-white" />
-            )}
-          </Button>
-        )}
         {/* LET AGREED Button */}
         {letAgreed && (
           <div

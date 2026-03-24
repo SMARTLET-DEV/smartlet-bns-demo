@@ -5,10 +5,6 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/hooks/useToast";
-import {
-    useGetProfileDataQuery,
-    useUpdateProfileDataMutation,
-} from "@/redux/reducers/profile/profileApi";
 import { useCreateApplyForRentMutation } from "@/redux/reducers/property/propertyApi";
 import {
     setApplyForRent,
@@ -76,13 +72,15 @@ const applicationSchema = z.object({
 type ApplicationFormData = z.infer<typeof applicationSchema>;
 
 export default function Application() {
+    const user = useSelector((state: any) => state.auth.user);
+
     const form = useForm<ApplicationFormData>({
         resolver: zodResolver(applicationSchema),
         defaultValues: {
-            firstName: "",
-            lastName: "",
-            phone: "123456",
-            email: "",
+            firstName: user?.name?.split(" ")[0] || "",
+            lastName: user?.name?.split(" ").slice(1).join(" ") || "",
+            phone: user?.phone || "",
+            email: user?.email || "",
             profession: "",
             familySize: 1,
             identityDocument: undefined,
@@ -91,24 +89,19 @@ export default function Application() {
         },
     });
 
-    const user = useSelector((state: any) => state.auth.user);
-
     if (!user) return null;
 
-    const { data: profileData } = useGetProfileDataQuery(user?.id);
-    const [updateProfileData, { isLoading: isUpdatingProfile }] =
-        useUpdateProfileDataMutation();
     const { id: propertyId } = useParams();
 
     useEffect(() => {
         if (user) {
             form.reset({
-                firstName: profileData?.profile.firstName || "",
-                lastName: profileData?.profile.lastName || "",
-                phone: profileData?.profile.phone || "",
-                email: profileData?.profile.email || "",
-                profession: profileData?.profile.profession || "",
-                familySize: Number(profileData?.profile.familySize) || 1,
+                firstName: user?.name?.split(" ")[0] || "",
+                lastName: user?.name?.split(" ").slice(1).join(" ") || "",
+                phone: user?.phone || "",
+                email: user?.email || "",
+                profession: "",
+                familySize: 1,
                 identityDocument: undefined,
                 financialDocument: undefined,
                 preferredMoveInMonth: new Date().toISOString(),
@@ -131,23 +124,6 @@ export default function Application() {
             if (isNaN(moveInDate.getTime())) {
                 error("Please select a valid move-in date");
                 return;
-            }
-
-            if (
-                form.formState.dirtyFields.profession ||
-                form.formState.dirtyFields.familySize
-            ) {
-                const formDataToUpdate = new FormData();
-                formDataToUpdate.append("profession", formData.profession);
-                formDataToUpdate.append(
-                    "familySize",
-                    formData.familySize.toString()
-                );
-                const profileDataToUpdate = {
-                    profileId: profileData?.profile.userId,
-                    data: formDataToUpdate,
-                };
-                await updateProfileData(profileDataToUpdate).unwrap();
             }
 
             const formDataToSend = new FormData();
@@ -279,9 +255,9 @@ export default function Application() {
                     <Button
                         type="submit"
                         className="h-fit cursor-pointer bg-[#CBC3E3] text-white border border-primary hover:bg-primary font-normal rounded-lg transition"
-                        disabled={isLoading || isUpdatingProfile}
+                        disabled={isLoading}
                     >
-                        {isLoading || isUpdatingProfile ? (
+                        {isLoading ? (
                             <Loader2 className="animate-spin"></Loader2>
                         ) : (
                             "Submit"

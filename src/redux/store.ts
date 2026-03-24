@@ -11,7 +11,6 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { baseApi } from "./api/baseAPi";
-import appointmentReducer from "./reducers/appointments/appointmentSlice";
 import authReducer from "./reducers/auth/authSlice";
 import authModalsReducer from "./reducers/authModals/authModalsSlice";
 import contactReducer from "./reducers/contact/contactSlice";
@@ -19,11 +18,8 @@ import pdfPreviewReducer from "./reducers/contact/pdfPreviewSlice";
 import faqReducer from "./reducers/faq/faqSlice";
 import listingCardReducer from "./reducers/listingCard/listingCardSlice";
 import listingModalReducer from "./reducers/listingModal/listingModalSlice";
-import profileReducer from "./reducers/profile/profileSlice";
 import propertyReducer from "./reducers/property/propertySlice";
 import smartViewReducer from "./reducers/property/smartViewSlice";
-import rentalApplicationReducer from "./reducers/rental-applications/RentalApplicationSlice";
-import rentedPropertyReducer from "./reducers/rented-property/RentedPropertySlice";
 import shortTermReducer from "./reducers/shortTermModal/shortTermSlice";
 
 const rootReducer = combineReducers({
@@ -31,11 +27,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   authModals: authModalsReducer,
   property: propertyReducer,
-  profile: profileReducer,
   listingModal: listingModalReducer,
-  appointment: appointmentReducer,
-  rentalApplication: rentalApplicationReducer,
-  rentedProperty: rentedPropertyReducer,
   listingCard: listingCardReducer,
   faq: faqReducer,
   contact: contactReducer,

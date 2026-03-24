@@ -27,7 +27,6 @@ import { useSubmitAgentRequestMutation } from "@/redux/reducers/request/agentReq
 import { useGetMeQuery } from "@/redux/reducers/user/userApi";
 import { useToast } from "@/hooks/useToast";
 
-import ErrorAlertMessage from "../dashboard/property-list/AddProperty-steps/ErrorAlertMessage";
 import { SuccessIcon } from "@/assets/icons";
 
 type AddPropertyFormProps = {
@@ -190,8 +189,8 @@ export function AddPropertyForm({ title, description }: AddPropertyFormProps) {
                   />
 
                   {errorMessage && (
-                    <div className="mt-4">
-                      <ErrorAlertMessage message={errorMessage} />
+                    <div className="mt-4 p-3 rounded-md bg-red-50 text-red-600 text-sm border border-red-100">
+                      {errorMessage}
                     </div>
                   )}
 

@@ -1,0 +1,34 @@
+import { useLazyCheckSessionQuery } from "@/redux/reducers/auth/authApi";
+import { useEffect, useState } from "react";
+import { handleClientLogout } from "@/utils/handleLogoutClient";
+
+export function useSessionCheck(isAuthenticated: boolean) {
+  const [triggerCheckSession] = useLazyCheckSessionQuery();
+  const [loading, setLoading] = useState(isAuthenticated);
+
+  useEffect(() => {
+    const checkSession = async () => {
+      if (!isAuthenticated) {
+        console.log("isAuthenticated status is changed");
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const res = await triggerCheckSession(undefined).unwrap();
+        if (!res.success) {
+          await handleClientLogout();
+        }
+      } catch (error) {
+        console.error("Session check failed:", error);
+        await handleClientLogout();
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkSession();
+  }, [isAuthenticated, triggerCheckSession]);
+
+  return loading;
+}

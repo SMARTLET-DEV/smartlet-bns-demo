@@ -1,0 +1,14 @@
+{
+    "extends": ["next"],
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "rules": {
+        "react/no-unescaped-entities": 1,
+        "indent": "error",
+        "no-multiple-empty-lines": "error",
+        "space-unary-ops": "error",
+        "no-undef": "error"
+    }
+}

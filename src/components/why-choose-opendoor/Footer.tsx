@@ -41,15 +41,15 @@ const Footer = () => {
                                     user.role === "OWNER"
                                         ? "/property-list"
                                         : user.role === "RENTER"
-                                        ? "/appointments"
-                                        : "/profile"
+                                            ? "/appointments"
+                                            : "/profile"
                                 }
                             >
                                 {user.role === "OWNER"
                                     ? "List Your Property"
                                     : user.role === "RENTER"
-                                    ? "See Your Appointments"
-                                    : "Profile"}
+                                        ? "See Your Appointments"
+                                        : "Profile"}
                             </Link>
                         ) : (
                             <span

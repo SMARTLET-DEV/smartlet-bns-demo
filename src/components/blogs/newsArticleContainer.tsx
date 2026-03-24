@@ -65,7 +65,7 @@ const NewsArticleContainer = () => {
                                             day: "numeric",
                                         })}
                                         duration={`${blog.readDuration || 5
-                                            } mins read`}
+                                        } mins read`}
                                         href={`/blogs/${blog.slug || blog.id}`}
                                     />
                                 </div>

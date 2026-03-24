@@ -10,16 +10,16 @@ interface SmartmoveRequest {
 }
 
 export const smartmoveApi = baseApi.injectEndpoints({
-  endpoints: (builder) => ({
-    submitSmartmoveRequest: builder.mutation<void, SmartmoveRequest>({
-      query: (body) => ({
-        url: "/basic-smart-move-requests/",
-        method: "POST",
-        body,
-      }),
+    endpoints: (builder) => ({
+        submitSmartmoveRequest: builder.mutation<void, SmartmoveRequest>({
+            query: (body) => ({
+                url: "/basic-smart-move-requests/",
+                method: "POST",
+                body,
+            }),
+        }),
     }),
-  }),
-  overrideExisting: false,
+    overrideExisting: false,
 });
 
 export const { useSubmitSmartmoveRequestMutation } = smartmoveApi;

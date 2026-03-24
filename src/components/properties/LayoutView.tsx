@@ -18,6 +18,19 @@ type LayoutViewProps = {
 };
 
 const LayoutView = ({ layout }: LayoutViewProps) => {
+    const [selectedFloor, setSelectedFloor] = useState<string>(() => {
+        const rawName =
+            layout?.[0]
+                ?.split("/")
+                .pop()
+                ?.replace(/\.[^/.]+$/, "") || "floor1";
+        return formatFloorName(rawName);
+    });
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const floorOptions = useMemo(() => extractFloorOptions(layout || []), [layout]);
+
     if (!layout || layout.length === 0) {
         return (
             <div className="rounded-2xl bg-white p-4 w-full sm:max-w-sm xl:px-5 flex flex-col min-h-[150px] justify-center items-center border border-gray-200">
@@ -30,19 +43,6 @@ const LayoutView = ({ layout }: LayoutViewProps) => {
             </div>
         );
     }
-
-    const [selectedFloor, setSelectedFloor] = useState<string>(() => {
-        const rawName =
-            layout[0]
-                ?.split("/")
-                .pop()
-                ?.replace(/\.[^/.]+$/, "") || "floor1";
-        return formatFloorName(rawName);
-    });
-
-    const [isOpen, setIsOpen] = useState(false);
-
-    const floorOptions = useMemo(() => extractFloorOptions(layout), [layout]);
 
     const selectedImageUrl =
         floorOptions.find((f) => f.name === selectedFloor)?.url || layout[0];

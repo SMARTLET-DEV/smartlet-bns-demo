@@ -111,9 +111,9 @@ export default function FileUploadForm({
                     {/* Drag and Drop Area */}
                     <div
                         className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${isDragging
-                                ? 'border-primary bg-primary/5'
-                                : 'border-gray-300 dark:border-gray-600'
-                            }`}
+                            ? 'border-primary bg-primary/5'
+                            : 'border-gray-300 dark:border-gray-600'
+                        }`}
                         onDragOver={handleDragOver}
                         onDragLeave={handleDragLeave}
                         onDrop={handleDrop}

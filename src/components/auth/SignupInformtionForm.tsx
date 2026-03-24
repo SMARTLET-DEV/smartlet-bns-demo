@@ -90,7 +90,6 @@ const SignupInformtionForm = () => {
     const { success, error: showError } = useToast();
 
 
-
     const handleGoogleSignup = () => {
         // Direct redirect to Auth0 authorization endpoint for Google signup
         const auth0Domain = process.env.NEXT_PUBLIC_AUTH0_DOMAIN;
@@ -165,9 +164,9 @@ const SignupInformtionForm = () => {
                                 : "data" in error &&
                                   typeof error.data === "object" &&
                                   error.data !== null
-                                ? (error.data as { message?: string })
-                                      .message || "An error occurred"
-                                : "An error occurred"}
+                                    ? (error.data as { message?: string })
+                                        .message || "An error occurred"
+                                    : "An error occurred"}
                         </p>
                     )}
                     <div className="grid grid-cols-2 gap-5">
@@ -201,8 +200,8 @@ const SignupInformtionForm = () => {
                             variant="outline"
                             className="w-full py-2 h-fit mt-3 flex items-center justify-center border-black text-black font-normal transition-colors duration-200 hover:border-primary"
                             style={{
-                              borderWidth: 1,
-                              background: "#fff",
+                                borderWidth: 1,
+                                background: "#fff",
                             }}
                             disabled={isLoading || isLoginLoading || isGoogleLoading}
                             onClick={handleGoogleSignup}

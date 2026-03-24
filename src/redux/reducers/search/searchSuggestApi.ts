@@ -7,13 +7,13 @@ interface SearchSuggestResponse {
 }
 
 export const searchSuggestApi = baseApi.injectEndpoints({
-  endpoints: (builder) => ({
-    getSearchSuggestions: builder.query<string[], string>({
-      query: (q) => `properties/search-suggestions?q=${q}`,
-      transformResponse: (response: SearchSuggestResponse) => response.suggestions,
+    endpoints: (builder) => ({
+        getSearchSuggestions: builder.query<string[], string>({
+            query: (q) => `properties/search-suggestions?q=${q}`,
+            transformResponse: (response: SearchSuggestResponse) => response.suggestions,
+        }),
     }),
-  }),
-  overrideExisting: false,
+    overrideExisting: false,
 });
 
 export const { useLazyGetSearchSuggestionsQuery } = searchSuggestApi;

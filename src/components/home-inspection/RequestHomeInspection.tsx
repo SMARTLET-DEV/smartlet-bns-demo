@@ -195,17 +195,17 @@ const RequestHomeInspectionSection = () => {
                                         <p className="w-full text-left py-3 px-4 border text-base md:text-sm rounded-md cursor-pointer bg-white">
                                             {form.watch("preferredDate")
                                                 ? new Date(
-                                                      form.watch(
-                                                          "preferredDate"
-                                                      )
-                                                  ).toLocaleDateString(
-                                                      "en-UK",
-                                                      {
-                                                          day: "2-digit",
-                                                          month: "long",
-                                                          year: "numeric",
-                                                      }
-                                                  )
+                                                    form.watch(
+                                                        "preferredDate"
+                                                    )
+                                                ).toLocaleDateString(
+                                                    "en-UK",
+                                                    {
+                                                        day: "2-digit",
+                                                        month: "long",
+                                                        year: "numeric",
+                                                    }
+                                                )
                                                 : "Select a date"}
                                         </p>
                                     </DropdownMenuTrigger>

@@ -3,83 +3,83 @@ import { MetadataRoute } from "next";
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const staticEntries: MetadataRoute.Sitemap = [
-        {
-            url: 'https://opendoor.com.bd',
-            lastModified: new Date(),
-        },
-        {
-            url: 'https://opendoor.com.bd/blogs',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/about-us',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/contact',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/faq',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/home-inspection',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/how-it-works-renter',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/how-it-works-owner',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/privacy-policy',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/smartmove',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/smartview',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/terms-and-conditions',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.opendoor.com.bd/why-choose-opendoor',
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-    ];
+    {
+        url: 'https://opendoor.com.bd',
+        lastModified: new Date(),
+    },
+    {
+        url: 'https://opendoor.com.bd/blogs',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/about-us',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/contact',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/faq',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/home-inspection',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/how-it-works-renter',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/how-it-works-owner',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/privacy-policy',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/smartmove',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/smartview',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/terms-and-conditions',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: 'https://www.opendoor.com.bd/why-choose-opendoor',
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let blogsEntries: MetadataRoute.Sitemap = [];

@@ -8,26 +8,26 @@ import RequestHomeInspectionSection from "@/components/home-inspection/RequestHo
 import WhatIsHomeInspectionSection from "@/components/home-inspection/WhatIsHomeInspection";
 
 const Page = () => {
-  const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // initial check
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize(); // initial check
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-  return (
-    <div className="bg-white">
-      <Hero />
-      <WhatIsHomeInspectionSection />
+    return (
+        <div className="bg-white">
+            <Hero />
+            <WhatIsHomeInspectionSection />
 
-      {isMobile ? <HowItWorksMobile /> : <HowItWorksSection />}
+            {isMobile ? <HowItWorksMobile /> : <HowItWorksSection />}
 
-      <BasicInspectionFeeSection />
-      <RequestHomeInspectionSection />
-    </div>
-  );
+            <BasicInspectionFeeSection />
+            <RequestHomeInspectionSection />
+        </div>
+    );
 };
 
 export default Page;

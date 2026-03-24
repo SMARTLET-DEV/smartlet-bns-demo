@@ -14,14 +14,14 @@ interface DocumentListProps {
 
 function getIconComponent(iconType: string) {
     switch (iconType) {
-        case 'image':
-            return ImageIcon;
-        case 'pdf':
-            return FileText;
-        case 'video':
-            return FileVideo;
-        default:
-            return File;
+    case 'image':
+        return ImageIcon;
+    case 'pdf':
+        return FileText;
+    case 'video':
+        return FileVideo;
+    default:
+        return File;
     }
 }
 

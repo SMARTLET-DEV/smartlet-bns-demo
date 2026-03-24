@@ -7,12 +7,12 @@ type LoaderAnimationProps = Omit<React.ComponentProps<typeof Lottie>, "animation
 };
 
 const LoaderAnimation: React.FC<LoaderAnimationProps> = ({ style, ...props }) => (
-  <Lottie
-    animationData={animation}
-    loop
-    style={style || { width: 300, height: 300 }}
-    {...props}
-  />
+    <Lottie
+        animationData={animation}
+        loop
+        style={style || { width: 300, height: 300 }}
+        {...props}
+    />
 );
 
 export default LoaderAnimation;

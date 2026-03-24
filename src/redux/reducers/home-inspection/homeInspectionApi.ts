@@ -12,16 +12,16 @@ interface HomeInspectionRequest {
 }
 
 export const homeInspectionApi = baseApi.injectEndpoints({
-  endpoints: (builder) => ({
-    submitHomeInspectionRequest: builder.mutation<void, HomeInspectionRequest>({
-      query: (body) => ({
-        url: "/basic-home-inspection-requests/",
-        method: "POST",
-        body,
-      }),
+    endpoints: (builder) => ({
+        submitHomeInspectionRequest: builder.mutation<void, HomeInspectionRequest>({
+            query: (body) => ({
+                url: "/basic-home-inspection-requests/",
+                method: "POST",
+                body,
+            }),
+        }),
     }),
-  }),
-  overrideExisting: false,
+    overrideExisting: false,
 });
 
 export const { useSubmitHomeInspectionRequestMutation } = homeInspectionApi;

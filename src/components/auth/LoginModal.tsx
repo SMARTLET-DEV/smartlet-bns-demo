@@ -129,8 +129,6 @@ export default function LoginModal() {
     };
 
 
-
-
     return (
         <Dialog
             open={isLoginModalOpen}
@@ -187,39 +185,39 @@ export default function LoginModal() {
                     <div className="flex flex-col w-full">
                         {loginError &&
                             isFetchBaseQueryErrorWithData(loginError) && (
-                                <div className="text-red-500 mb-3">
-                                    {loginError.data.message && (
-                                        <p className="text-red-500">
+                            <div className="text-red-500 mb-3">
+                                {loginError.data.message && (
+                                    <p className="text-red-500">
                                             Error: {loginError.data.message}
-                                        </p>
-                                    )}
-                                    {errors.message && (
-                                        <p className="text-red-500">
+                                    </p>
+                                )}
+                                {errors.message && (
+                                    <p className="text-red-500">
                                             Error: {errors.message}
-                                        </p>
-                                    )}
-                                    {(loginError as ErrorResponse)?.data?.data
-                                        ?.errors?.length > 0 && (
-                                        <>
-                                            <p>Error:</p>
-                                            <ul className="text-red-500 pl-4.5">
-                                                {(
+                                    </p>
+                                )}
+                                {(loginError as ErrorResponse)?.data?.data
+                                    ?.errors?.length > 0 && (
+                                    <>
+                                        <p>Error:</p>
+                                        <ul className="text-red-500 pl-4.5">
+                                            {(
                                                     loginError as ErrorResponse
-                                                )?.data?.data?.errors?.map(
-                                                    (message, index) => (
-                                                        <li
-                                                            key={index}
-                                                            className="list-disc"
-                                                        >
-                                                            {message.msg}
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
-                                        </>
-                                    )}
-                                </div>
-                            )}
+                                            )?.data?.data?.errors?.map(
+                                                (message, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="list-disc"
+                                                    >
+                                                        {message.msg}
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </>
+                                )}
+                            </div>
+                        )}
                         <Button
                             type="submit"
                             className="w-full py-3 h-fit cursor-pointer"
@@ -239,8 +237,8 @@ export default function LoginModal() {
                             variant="outline"
                             className="w-full py-2 h-fit mt-3 flex items-center justify-center border-black text-black font-normal transition-colors duration-200 hover:border-primary"
                             style={{
-                              borderWidth: 1,
-                              background: "#fff",
+                                borderWidth: 1,
+                                background: "#fff",
                             }}
                             disabled={isLoginLoading || isGoogleLoading}
                             onClick={handleGoogleLogin}

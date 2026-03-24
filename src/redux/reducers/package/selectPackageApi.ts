@@ -29,18 +29,18 @@ export interface SelectPackageResponse {
 }
 
 export const selectPackageApi = baseApi.injectEndpoints({
-  endpoints: (builder) => ({
-    selectPackage: builder.mutation<
+    endpoints: (builder) => ({
+        selectPackage: builder.mutation<
       SelectPackageResponse,
       { package: string; propertyType: string }
     >({
-      query: (body) => ({
-        url: "/properties/select-package",
-        method: "POST",
-        body,
-      }),
+        query: (body) => ({
+            url: "/properties/select-package",
+            method: "POST",
+            body,
+        }),
     }),
-  }),
+    }),
 });
 
 export const { useSelectPackageMutation } = selectPackageApi;

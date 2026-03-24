@@ -11,24 +11,24 @@ type FloorPlanModalProps = {
 };
 
 export function FloorPlanModal({
-  triggerState,
-  setTriggerState,
-  images,
+    triggerState,
+    setTriggerState,
+    images,
 }: FloorPlanModalProps) {
-  return (
-    <>
-      <CustomModal
-        title="Floor Plan"
-        triggerState={triggerState}
-        setTriggerState={setTriggerState}
-        className=""
-      >
-        <div className="w-full">
-          <FloorPlanCarousel
-            images={images}
-          />
-        </div>
-      </CustomModal>
-    </>
-  );
+    return (
+        <>
+            <CustomModal
+                title="Floor Plan"
+                triggerState={triggerState}
+                setTriggerState={setTriggerState}
+                className=""
+            >
+                <div className="w-full">
+                    <FloorPlanCarousel
+                        images={images}
+                    />
+                </div>
+            </CustomModal>
+        </>
+    );
 }

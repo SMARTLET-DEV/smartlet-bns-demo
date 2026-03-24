@@ -11,15 +11,15 @@ interface MapExampleProps {
 }
 
 export default function MapExample({ height, propertyMarkers, zoomCenter, propertyData = [] }: MapExampleProps) {
-  return (
-    <div className="w-full h-full">
-      <MapboxListingsMap
-        markerCoordinates={propertyMarkers}
-        boundaryCoordinates={bananiBoundary}
-        height={height}
-        zoomCenter={zoomCenter}
-        propertyData={propertyData}
-      />
-    </div>
-  );
+    return (
+        <div className="w-full h-full">
+            <MapboxListingsMap
+                markerCoordinates={propertyMarkers}
+                boundaryCoordinates={bananiBoundary}
+                height={height}
+                zoomCenter={zoomCenter}
+                propertyData={propertyData}
+            />
+        </div>
+    );
 }

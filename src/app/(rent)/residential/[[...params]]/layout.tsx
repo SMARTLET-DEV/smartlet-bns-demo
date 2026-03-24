@@ -7,22 +7,22 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const resolvedParams = await params;
+    const resolvedParams = await params;
 
-  // Build pathname with /residential prefix
-  const pathname = resolvedParams.params
-    ? `/residential/${resolvedParams.params.join("/")}`
-    : "/residential/apartments-for-rent";
+    // Build pathname with /residential prefix
+    const pathname = resolvedParams.params
+        ? `/residential/${resolvedParams.params.join("/")}`
+        : "/residential/apartments-for-rent";
 
-  const filters = parsePathToFilters(pathname);
+    const filters = parsePathToFilters(pathname);
 
-  return generatePropertyMetadata(filters);
+    return generatePropertyMetadata(filters);
 }
 
 export default function ResidentialLayout({
-  children,
+    children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+    return <>{children}</>;
 }

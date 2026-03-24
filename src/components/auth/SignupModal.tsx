@@ -122,10 +122,10 @@ export default function SignupModal() {
                 <FormProvider {...form}>
                     {form.watch("role") === ROLES.OWNER ||
                     form.watch("role") === ROLES.RENTER ? (
-                        <SignupInformtionForm />
-                    ) : (
-                        <SignupRoleInformationForm />
-                    )}
+                            <SignupInformtionForm />
+                        ) : (
+                            <SignupRoleInformationForm />
+                        )}
                 </FormProvider>
             </DialogContent>
         </Dialog>

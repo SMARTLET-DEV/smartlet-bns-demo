@@ -10,18 +10,18 @@ import SignupModal from "@/components/auth/SignupModal";
 import ExploreServices from "@/components/why-choose-opendoor/ExploreServices";
 
 function AboutPage() {
-  return (
-    <>
-        <WhoWeAreSection/>
-        <MissionFrame/>
-        <PrinciplesGrid/>
-        <PhilosophySection/>
-        <ExploreServices/>
-        <LoginModal/>
-        <SignupModal/>
+    return (
+        <>
+            <WhoWeAreSection/>
+            <MissionFrame/>
+            <PrinciplesGrid/>
+            <PhilosophySection/>
+            <ExploreServices/>
+            <LoginModal/>
+            <SignupModal/>
 
-    </>
-  );
+        </>
+    );
 }
 
 export default AboutPage;

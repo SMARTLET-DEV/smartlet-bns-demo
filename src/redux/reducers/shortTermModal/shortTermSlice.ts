@@ -1,4 +1,4 @@
- // src/redux/reducers/shortTerm/shortTermSlice.ts
+// src/redux/reducers/shortTerm/shortTermSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ShortTermState {
@@ -6,20 +6,20 @@ interface ShortTermState {
 }
 
 const initialState: ShortTermState = {
-  value: null,
+    value: null,
 };
 
 const shortTermSlice = createSlice({
-  name: "shortTerm",
-  initialState,
-  reducers: {
-    setShortTerm: (state, action: PayloadAction<boolean>) => {
-      state.value = action.payload;
+    name: "shortTerm",
+    initialState,
+    reducers: {
+        setShortTerm: (state, action: PayloadAction<boolean>) => {
+            state.value = action.payload;
+        },
+        resetShortTerm: (state) => {
+            state.value = null;
+        },
     },
-    resetShortTerm: (state) => {
-      state.value = null;
-    },
-  },
 });
 
 export const { setShortTerm, resetShortTerm } = shortTermSlice.actions;

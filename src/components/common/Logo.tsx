@@ -5,11 +5,11 @@ interface LogoProps {
 }
 
 export const Logo: React.FC<LogoProps> = ({ variant }) => {
-  return (
-    <Link href="/">
-      <span className={`text-2xl font-bold tracking-wider ${variant ? "text-white" : "text-primary"} flex items-center h-full cursor-pointer`}>
+    return (
+        <Link href="/">
+            <span className={`text-2xl font-bold tracking-wider ${variant ? "text-white" : "text-primary"} flex items-center h-full cursor-pointer`}>
         OPENDOOR
-      </span>
-    </Link>
-  );
+            </span>
+        </Link>
+    );
 };

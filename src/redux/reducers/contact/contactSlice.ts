@@ -12,25 +12,25 @@ interface ContactState {
 }
 
 const initialState: ContactState = {
-  isSuccessDialogOpen: false,
-  submittedFormData: null,
+    isSuccessDialogOpen: false,
+    submittedFormData: null,
 };
 
 const contactSlice = createSlice({
-  name: "contact",
-  initialState,
-  reducers: {
-    setSuccessDialogOpen(state, action: PayloadAction<boolean>) {
-      state.isSuccessDialogOpen = action.payload;
+    name: "contact",
+    initialState,
+    reducers: {
+        setSuccessDialogOpen(state, action: PayloadAction<boolean>) {
+            state.isSuccessDialogOpen = action.payload;
+        },
+        setSubmittedFormData(state, action: PayloadAction<ContactState["submittedFormData"]>) {
+            state.submittedFormData = action.payload;
+        },
+        resetContactState(state) {
+            state.isSuccessDialogOpen = false;
+            state.submittedFormData = null;
+        },
     },
-    setSubmittedFormData(state, action: PayloadAction<ContactState["submittedFormData"]>) {
-      state.submittedFormData = action.payload;
-    },
-    resetContactState(state) {
-      state.isSuccessDialogOpen = false;
-      state.submittedFormData = null;
-    },
-  },
 });
 
 export const { setSuccessDialogOpen, setSubmittedFormData, resetContactState } = contactSlice.actions;

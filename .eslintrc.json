@@ -1,14 +1,25 @@
 {
     "extends": ["next"],
     "env": {
+        "browser": true,
+        "node": true,
         "es2021": true,
-        "node": true
+        "jest": true,
+        "commonjs": true
+    },
+    "globals": {
+        "React": "readonly",
+        "NodeJS": "readonly",
+        "JSX": "readonly"
     },
     "rules": {
         "react/no-unescaped-entities": 1,
         "indent": "error",
         "no-multiple-empty-lines": "error",
         "space-unary-ops": "error",
-        "no-undef": "error"
+        "no-undef": "error",
+        "react/react-in-jsx-scope": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }

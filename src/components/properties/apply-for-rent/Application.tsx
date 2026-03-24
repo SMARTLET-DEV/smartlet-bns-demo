@@ -73,6 +73,10 @@ type ApplicationFormData = z.infer<typeof applicationSchema>;
 
 export default function Application() {
     const user = useSelector((state: any) => state.auth.user);
+    const { id: propertyId } = useParams();
+    const dispatch = useDispatch();
+    const { success, error } = useToast();
+    const [applyForRent, { isLoading }] = useCreateApplyForRentMutation();
 
     const form = useForm<ApplicationFormData>({
         resolver: zodResolver(applicationSchema),
@@ -89,10 +93,6 @@ export default function Application() {
         },
     });
 
-    if (!user) return null;
-
-    const { id: propertyId } = useParams();
-
     useEffect(() => {
         if (user) {
             form.reset({
@@ -107,11 +107,9 @@ export default function Application() {
                 preferredMoveInMonth: new Date().toISOString(),
             });
         }
-    }, [user]);
+    }, [user, form]);
 
-    const [applyForRent, { isLoading }] = useCreateApplyForRentMutation();
-    const dispatch = useDispatch();
-    const { success, error } = useToast();
+    if (!user) return null;
 
     const handleApplicationSubmit = async (formData: ApplicationFormData) => {
         try {
@@ -211,12 +209,12 @@ export default function Application() {
                                 <p className="w-full text-left py-3 px-4 border text-base md:text-sm rounded-md cursor-pointer">
                                     {form.watch("preferredMoveInMonth")
                                         ? new Date(
-                                              form.watch("preferredMoveInMonth")
-                                          ).toLocaleDateString("en-UK", {
-                                              day: "2-digit",
-                                              month: "long",
-                                              year: "numeric",
-                                          })
+                                            form.watch("preferredMoveInMonth")
+                                        ).toLocaleDateString("en-UK", {
+                                            day: "2-digit",
+                                            month: "long",
+                                            year: "numeric",
+                                        })
                                         : "Select a date"}
                                 </p>
                             </DropdownMenuTrigger>

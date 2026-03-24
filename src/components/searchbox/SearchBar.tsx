@@ -124,9 +124,9 @@ export function SearchBar({
           flex flex-col sm:flex-row gap-4 sm:gap-5 bg-background px-3 py-3 w-full z-10 shadow-none sm:border
           rounded-xl
           ${isFilterOpen
-                        ? "sm:rounded-b-none"
-                        : "sm:rounded-bl-none sm:rounded-br-xl"
-                    }
+            ? "sm:rounded-b-none"
+            : "sm:rounded-bl-none sm:rounded-br-xl"
+        }
         `}
             >
                 <div className="h-[48px] w-full lg:w-[384px] xl:w-[538px] 2xl:w-[692px]">
@@ -202,9 +202,9 @@ export function SearchBar({
                 <div
                     className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ease-out
                       ${isFilterOpen
-                            ? "opacity-100 pointer-events-auto"
-                            : "opacity-0"
-                        }`}
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0"
+        }`}
                     onClick={handleCloseFilter}
                 />
                 <div
@@ -216,9 +216,9 @@ export function SearchBar({
             shadow-lg border
             transform transition-transform duration-300 ease-out
             ${isFilterOpen
-                            ? "translate-y-0 pointer-events-auto"
-                            : "translate-y-full"
-                        }
+            ? "translate-y-0 pointer-events-auto"
+            : "translate-y-full"
+        }
           `}
                 >
                     <FilterFormContent

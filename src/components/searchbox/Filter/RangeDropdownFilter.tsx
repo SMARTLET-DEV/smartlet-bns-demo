@@ -87,8 +87,8 @@ export function RangeDropdownFilter({
                                 backgroundColor: state.isSelected
                                     ? BRAND_COLOR
                                     : state.isFocused
-                                    ? "#F3F4F6"
-                                    : "#fff",
+                                        ? "#F3F4F6"
+                                        : "#fff",
                                 color: state.isSelected ? "#fff" : "#111827",
                                 cursor: "pointer",
                                 fontWeight: state.isSelected
@@ -150,8 +150,8 @@ export function RangeDropdownFilter({
                                 backgroundColor: state.isSelected
                                     ? BRAND_COLOR
                                     : state.isFocused
-                                    ? "#F3F4F6"
-                                    : "#fff",
+                                        ? "#F3F4F6"
+                                        : "#fff",
                                 color: state.isSelected ? "#fff" : "#111827",
                                 cursor: "pointer",
                                 fontWeight: state.isSelected

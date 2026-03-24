@@ -7,26 +7,26 @@ type State = {
 };
 
 const initialState: State = {
-  clickedByPropertyId: {},
+    clickedByPropertyId: {},
 };
 
 const smartViewSlice = createSlice({
-  name: "smartView",
-  initialState,
-  reducers: {
-    markSmartViewClicked(state, action: PayloadAction<{ propertyId: string | number }>) {
-      const key = String(action.payload.propertyId);
-      state.clickedByPropertyId[key] = true;
+    name: "smartView",
+    initialState,
+    reducers: {
+        markSmartViewClicked(state, action: PayloadAction<{ propertyId: string | number }>) {
+            const key = String(action.payload.propertyId);
+            state.clickedByPropertyId[key] = true;
+        },
+        resetSmartViewClicked(state, action: PayloadAction<{ propertyId: string | number }>) {
+            const key = String(action.payload.propertyId);
+            delete state.clickedByPropertyId[key];
+        },
+        // optional: clear all (dev-only)
+        resetAllSmartView(state) {
+            state.clickedByPropertyId = {};
+        },
     },
-    resetSmartViewClicked(state, action: PayloadAction<{ propertyId: string | number }>) {
-      const key = String(action.payload.propertyId);
-      delete state.clickedByPropertyId[key];
-    },
-    // optional: clear all (dev-only)
-    resetAllSmartView(state) {
-      state.clickedByPropertyId = {};
-    },
-  },
 });
 
 export const { markSmartViewClicked, resetSmartViewClicked, resetAllSmartView } =

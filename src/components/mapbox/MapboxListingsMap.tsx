@@ -46,11 +46,11 @@ export default function MapboxListingsMap({
 
     useEffect(() => {
         const handleScroll = () => {
-        if (window.scrollY > 50) {
-            setIsScrolledDown(true);
-        } else {
-            setIsScrolledDown(false);
-        }
+            if (window.scrollY > 50) {
+                setIsScrolledDown(true);
+            } else {
+                setIsScrolledDown(false);
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -104,20 +104,20 @@ export default function MapboxListingsMap({
             const property = properties[i];
             const propertyInfo = property
                 ? {
-                      id: property.id,
-                      thumbnail: getThumbnailUrl(property.thumbnail),
-                      price: property.price,
-                      sqft: parseInt(property.size) || 0,
-                      beds: property.bedrooms,
-                  }
+                    id: property.id,
+                    thumbnail: getThumbnailUrl(property.thumbnail),
+                    price: property.price,
+                    sqft: parseInt(property.size) || 0,
+                    beds: property.bedrooms,
+                }
                 : {
-                      id: `property-${i}`,
-                      thumbnail:
+                    id: `property-${i}`,
+                    thumbnail:
                           "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400",
-                      price: 25000,
-                      sqft: 1000,
-                      beds: 2,
-                  };
+                    price: 25000,
+                    sqft: 1000,
+                    beds: 2,
+                };
 
             // Create popup container
             const popupContainer = document.createElement("div");
@@ -371,10 +371,10 @@ export default function MapboxListingsMap({
             className="relative"
             style={{ width: "100%", height: `${height}px` }}
         >
-                 <div
-                    className="absolute bottom-4 left-4 z-10 flex flex-col space-y-2 bg-white shadow rounded p-1 
+            <div
+                className="absolute bottom-4 left-4 z-10 flex flex-col space-y-2 bg-white shadow rounded p-1 
                     transition-all duration-400 ease-in-out"
-                >
+            >
                 <button
                     onClick={handleZoomIn}
                     className="text-xl font-normal w-8 h-8 flex items-center justify-center hover:bg-gray-100"

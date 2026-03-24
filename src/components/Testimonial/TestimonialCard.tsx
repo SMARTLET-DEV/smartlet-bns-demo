@@ -31,22 +31,22 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
             <div className="mt-5 flex items-center gap-3">
                 {dp ? (
                     <div className="w-12 h-12 rounded-full border-2 border-primary/100 flex items-center justify-center">
-                    <img
-                        src={dp}
-                        alt={name}
-                        className="w-10 h-10 rounded-full object-cover"
-                    />
+                        <img
+                            src={dp}
+                            alt={name}
+                            className="w-10 h-10 rounded-full object-cover"
+                        />
                     </div>
                 ) : (
                     <div className="w-10 h-10 rounded-full bg-transparent flex items-center justify-center">
-                    <UserIcon className="w-10 h-10 text-muted" />
+                        <UserIcon className="w-10 h-10 text-muted" />
                     </div>
                 )}
                 <div className="text-left">   {/* <-- force left alignment */}
                     <h4 className="font-normal text-secondary">{name}</h4>
                     <p className="text-muted text-base font-normal">{designation}</p>
                 </div>
-                </div>
+            </div>
         </div>
     );
 };

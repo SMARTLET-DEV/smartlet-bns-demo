@@ -40,6 +40,9 @@ type OfferFormData = z.infer<typeof offerSchema>;
 
 export default function OfferForm() {
     const user = useSelector((state: any) => state.auth.user);
+    const { id: propertyId } = useParams();
+    const dispatch = useDispatch();
+    const { success, error } = useToast();
 
     const form = useForm<OfferFormData>({
         resolver: zodResolver(offerSchema),
@@ -53,10 +56,6 @@ export default function OfferForm() {
         },
     });
 
-    if (!user) return null;
-
-    const { id: propertyId } = useParams();
-
     useEffect(() => {
         if (user) {
             form.reset({
@@ -68,10 +67,10 @@ export default function OfferForm() {
                 additionalNotes: "",
             });
         }
-    }, [user]);
+    }, [user, form]);
 
-    const dispatch = useDispatch();
-    const { success, error } = useToast();
+    if (!user) return null;
+
     const isLoading = false; // Will be used when backend is ready
 
     const handleOfferSubmit = async (formData: OfferFormData) => {
@@ -154,12 +153,12 @@ export default function OfferForm() {
                                 <p className="w-full text-left py-3 px-4 border text-base md:text-sm rounded-md cursor-pointer">
                                     {form.watch("preferredMoveInDate")
                                         ? new Date(
-                                              form.watch("preferredMoveInDate")
-                                          ).toLocaleDateString("en-UK", {
-                                              day: "2-digit",
-                                              month: "long",
-                                              year: "numeric",
-                                          })
+                                            form.watch("preferredMoveInDate")
+                                        ).toLocaleDateString("en-UK", {
+                                            day: "2-digit",
+                                            month: "long",
+                                            year: "numeric",
+                                        })
                                         : "Select a date"}
                                 </p>
                             </DropdownMenuTrigger>

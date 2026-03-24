@@ -49,14 +49,14 @@ const truncateWithThreeDots = (text: string, maxChars: number) => {
 };
 
 export const BlogCard: React.FC<BlogCardProps> = ({
-                                                      src,
-                                                      title,
-                                                      date,
-                                                      duration,
-                                                      href = "#",
-                                                      description = "",
-                                                      variant = "default",
-                                                  }) => {
+    src,
+    title,
+    date,
+    duration,
+    href = "#",
+    description = "",
+    variant = "default",
+}) => {
     // tweak these numbers if you want longer/shorter previews
     const MAX_DESC_CHARS = variant === "large" ? 240 : 170;
 

@@ -97,9 +97,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                         >
                             <Menu
                                 className={`w-6 h-6 ${variant === "default"
-                                        ? "text-secondary"
-                                        : "text-primary-foreground"
-                                    }`}
+                                    ? "text-secondary"
+                                    : "text-primary-foreground"
+                                }`}
                                 strokeWidth={1.5}
                             />
                         </button>
@@ -133,41 +133,41 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                                                 }
                                                 className={`w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-normal transition-colors ${mobileDropdownOpen ===
                                                         item.stateKey
-                                                        ? "bg-primary"
-                                                        : " hover:bg-gray-100"
-                                                    }`}
+                                                    ? "bg-primary"
+                                                    : " hover:bg-gray-100"
+                                                }`}
                                             >
                                                 {item.label}
                                                 {mobileDropdownOpen ===
                                                     item.stateKey ? (
-                                                    <ChevronupIcon className="w-5 h-5" />
-                                                ) : (
-                                                    <ChevronDownIcon className="w-5 h-5" />
-                                                )}
+                                                        <ChevronupIcon className="w-5 h-5" />
+                                                    ) : (
+                                                        <ChevronDownIcon className="w-5 h-5" />
+                                                    )}
                                             </button>
                                             {mobileDropdownOpen ===
                                                 item.stateKey && (
-                                                    <div className="pl-4 py-2 mt-1 space-y-2 bg-white/10 backdrop-blur-lg rounded-sm">
-                                                        {item.links.map((link) =>
-                                                            link.disabled ? (
-                                                                <span
-                                                                    key={link.label}
-                                                                    className="block text-base text-gray-400 cursor-not-allowed"
-                                                                >
-                                                                    {link.label}
-                                                                </span>
-                                                            ) : (
-                                                                <Link
-                                                                    key={link.label}
-                                                                    href={link.href}
-                                                                    className="block text-base hover:no-underline"
-                                                                >
-                                                                    {link.label}
-                                                                </Link>
-                                                            )
-                                                        )}
-                                                    </div>
-                                                )}
+                                                <div className="pl-4 py-2 mt-1 space-y-2 bg-white/10 backdrop-blur-lg rounded-sm">
+                                                    {item.links.map((link) =>
+                                                        link.disabled ? (
+                                                            <span
+                                                                key={link.label}
+                                                                className="block text-base text-gray-400 cursor-not-allowed"
+                                                            >
+                                                                {link.label}
+                                                            </span>
+                                                        ) : (
+                                                            <Link
+                                                                key={link.label}
+                                                                href={link.href}
+                                                                className="block text-base hover:no-underline"
+                                                            >
+                                                                {link.label}
+                                                            </Link>
+                                                        )
+                                                    )}
+                                                </div>
+                                            )}
                                         </div>
                                     );
                                 }

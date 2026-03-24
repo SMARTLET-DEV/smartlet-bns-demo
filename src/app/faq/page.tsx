@@ -8,14 +8,14 @@ import ExploreServices from "@/components/why-choose-opendoor/ExploreServices";
 
 function FaqPage() {
   
-  return (
-    <>
-      <FaqHero />
-      <FaqContainer />
-      <ContactForm title="Still Have Questions?"/>
-      <ExploreServices/>
-    </>
-  );
+    return (
+        <>
+            <FaqHero />
+            <FaqContainer />
+            <ContactForm title="Still Have Questions?"/>
+            <ExploreServices/>
+        </>
+    );
 }
 
 export default FaqPage;

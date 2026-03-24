@@ -20,7 +20,7 @@ const generateTimeSlots = () => {
         slots.push({
             value: `${hour.toString().padStart(2, "0")}:00`,
             label: `${hour > 12 ? hour - 12 : hour}:00 ${hour >= 12 ? "PM" : "AM"
-                }`,
+            }`,
         });
 
         // Add half hour slot (except for the last hour to end at 8:00 PM)
@@ -28,7 +28,7 @@ const generateTimeSlots = () => {
             slots.push({
                 value: `${hour.toString().padStart(2, "0")}:30`,
                 label: `${hour > 12 ? hour - 12 : hour}:30 ${hour >= 12 ? "PM" : "AM"
-                    }`,
+                }`,
             });
         }
     }
@@ -92,9 +92,9 @@ function TimeSlot<T extends Record<string, any>>({
                                             <FormItem
                                                 key={index}
                                                 className={`font-normal flex items-center justify-center cursor-pointer rounded-md has-[input:checked]:bg-primary has-[input:checked]:text-white w-full border border-card has-[input:disabled]:cursor-not-allowed has-[input:disabled]:opacity-50 has-[input:disabled]:bg-card ${isDisabled
-                                                        ? "opacity-50 cursor-not-allowed bg-card"
-                                                        : ""
-                                                    }`}
+                                                    ? "opacity-50 cursor-not-allowed bg-card"
+                                                    : ""
+                                                }`}
                                             >
                                                 <FormControl>
                                                     <RadioGroupItem

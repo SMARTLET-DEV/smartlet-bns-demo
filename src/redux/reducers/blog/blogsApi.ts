@@ -39,31 +39,31 @@ type SingleBlogResponse = {
 };
 
 export const blogApi = baseApi.injectEndpoints({
-  endpoints: (builder) => ({
-    getAllBlogs: builder.query<BlogsResponse, { skip?: number; take?: number }>(
-      {
-        // Fixed return type
-        query: ({ skip = 0, take = 10 }) =>
-          `/blogs?skip=${skip}&take=${take}&orderBy=-createdAt`,
-        providesTags: (result) =>
-          result?.blogs
-            ? [
-                { type: "Blog" as const, id: "LIST" },
-                ...result.blogs.map((blog) => ({
-                  type: "Blog" as const,
-                  id: blog.id,
-                })),
-              ]
-            : [{ type: "Blog" as const, id: "LIST" }],
-        transformResponse: (response: BlogsResponse) => response,
-      }
-    ),
-    getSingleBlog: builder.query<SingleBlogResponse, string>({
-      query: (id) => `/blogs/${id}`,
-      providesTags: (result, error, id) => [{ type: "Blog" as const, id }],
-      transformResponse: (response: SingleBlogResponse) => response,
+    endpoints: (builder) => ({
+        getAllBlogs: builder.query<BlogsResponse, { skip?: number; take?: number }>(
+            {
+                // Fixed return type
+                query: ({ skip = 0, take = 10 }) =>
+                    `/blogs?skip=${skip}&take=${take}&orderBy=-createdAt`,
+                providesTags: (result) =>
+                    result?.blogs
+                        ? [
+                            { type: "Blog" as const, id: "LIST" },
+                            ...result.blogs.map((blog) => ({
+                                type: "Blog" as const,
+                                id: blog.id,
+                            })),
+                        ]
+                        : [{ type: "Blog" as const, id: "LIST" }],
+                transformResponse: (response: BlogsResponse) => response,
+            }
+        ),
+        getSingleBlog: builder.query<SingleBlogResponse, string>({
+            query: (id) => `/blogs/${id}`,
+            providesTags: (result, error, id) => [{ type: "Blog" as const, id }],
+            transformResponse: (response: SingleBlogResponse) => response,
+        }),
     }),
-  }),
 });
 
 export const { useGetAllBlogsQuery, useGetSingleBlogQuery } = blogApi;

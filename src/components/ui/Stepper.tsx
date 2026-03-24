@@ -240,14 +240,14 @@ const defineStepper = <const Steps extends Stepperize.Step[]>(
                         </Button>
                         {variant === "horizontal" &&
                             labelOrientation === "vertical" && (
-                                <StepperSeparator
-                                    orientation="horizontal"
-                                    labelOrientation={labelOrientation}
-                                    isLast={isLast}
-                                    state={dataState}
-                                    disabled={props.disabled}
-                                />
-                            )}
+                            <StepperSeparator
+                                orientation="horizontal"
+                                labelOrientation={labelOrientation}
+                                isLast={isLast}
+                                state={dataState}
+                                disabled={props.disabled}
+                            />
+                        )}
                         <div
                             className={
                                 dataState !== "inactive"
@@ -262,13 +262,13 @@ const defineStepper = <const Steps extends Stepperize.Step[]>(
 
                     {variant === "horizontal" &&
                         labelOrientation === "horizontal" && (
-                            <StepperSeparator
-                                orientation="horizontal"
-                                isLast={isLast}
-                                state={dataState}
-                                disabled={props.disabled}
-                            />
-                        )}
+                        <StepperSeparator
+                            orientation="horizontal"
+                            isLast={isLast}
+                            state={dataState}
+                            disabled={props.disabled}
+                        />
+                    )}
 
                     {variant === "vertical" && (
                         <div className="flex gap-4">

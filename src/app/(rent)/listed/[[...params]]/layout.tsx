@@ -7,22 +7,22 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const resolvedParams = await params;
+    const resolvedParams = await params;
 
-  // Build pathname with /listed prefix
-  const pathname = resolvedParams.params
-    ? `/listed/${resolvedParams.params.join("/")}`
-    : "/listed";
+    // Build pathname with /listed prefix
+    const pathname = resolvedParams.params
+        ? `/listed/${resolvedParams.params.join("/")}`
+        : "/listed";
 
-  const filters = parsePathToFilters(pathname);
+    const filters = parsePathToFilters(pathname);
 
-  return generatePropertyMetadata(filters);
+    return generatePropertyMetadata(filters);
 }
 
 export default function ListedLayout({
-  children,
+    children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+    return <>{children}</>;
 }

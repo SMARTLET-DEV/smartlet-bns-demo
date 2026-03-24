@@ -11,18 +11,18 @@ const PaymentSuccessPage = ({ searchParams }: { searchParams: any }) => {
 
     useEffect(() => {
         switch (type) {
-            case "SERVICE": {
-                async function fetchInvoice() {
-                    const { data } = await getServiceReceipt({
-                        serviceRequestId,
-                        transactionId: tran_id,
-                    });
-                    console.log("invoice data: ", data);
-                    window.open(data?.data?.receiptUrl, "_blank");
-                }
-                fetchInvoice();
-                break;
+        case "SERVICE": {
+            async function fetchInvoice() {
+                const { data } = await getServiceReceipt({
+                    serviceRequestId,
+                    transactionId: tran_id,
+                });
+                console.log("invoice data: ", data);
+                window.open(data?.data?.receiptUrl, "_blank");
             }
+            fetchInvoice();
+            break;
+        }
         }
     }, [searchParams]);
 

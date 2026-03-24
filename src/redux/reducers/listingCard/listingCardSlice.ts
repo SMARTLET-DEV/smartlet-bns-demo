@@ -5,17 +5,17 @@ interface ListingCardState {
 }
 
 const initialState: ListingCardState = {
-  hoveredCardId: null,
+    hoveredCardId: null,
 };
 
 const listingCardSlice = createSlice({
-  name: "listingCard",
-  initialState,
-  reducers: {
-    setHoveredCard(state, action: PayloadAction<string | null>) {
-      state.hoveredCardId = action.payload;
+    name: "listingCard",
+    initialState,
+    reducers: {
+        setHoveredCard(state, action: PayloadAction<string | null>) {
+            state.hoveredCardId = action.payload;
+        },
     },
-  },
 });
 
 export const { setHoveredCard } = listingCardSlice.actions;

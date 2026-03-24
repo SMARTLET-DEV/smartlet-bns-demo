@@ -89,14 +89,14 @@ export function AvatarButton({ variant = "default" }: AvatarButtonProps) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                    <UserIcon
-                        className={cn(
-                            "w-8 h-8 cursor-pointer",
-                            variant === "default"
-                                ? "text-secondary"
-                                : "text-primary-foreground"
-                        )}
-                    />
+                <UserIcon
+                    className={cn(
+                        "w-8 h-8 cursor-pointer",
+                        variant === "default"
+                            ? "text-secondary"
+                            : "text-primary-foreground"
+                    )}
+                />
             </DropdownMenuTrigger>
 
             <DropdownMenuContent

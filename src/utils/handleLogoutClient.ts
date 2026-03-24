@@ -7,11 +7,11 @@ Not stored manually in localStorage
 Not stored in cookies
 */
 export const handleClientLogout = async () => {
-  try {
-    store.dispatch(logout());
+    try {
+        store.dispatch(logout());
 
-    await persistor.purge();
-  } catch (err) {
-    console.error("Logout handler error:", err);
-  }
+        await persistor.purge();
+    } catch (err) {
+        console.error("Logout handler error:", err);
+    }
 };

@@ -10,17 +10,17 @@ interface RequestPayload {
 }
 
 export const requestApi = baseApi.injectEndpoints({
-  endpoints: (builder) => ({
-    submitRequest: builder.mutation<void, RequestPayload>({
-      query: (body) => ({
-        url: "/custom-requests",
-        method: "POST",
-        body,
-      }),
-    }),
+    endpoints: (builder) => ({
+        submitRequest: builder.mutation<void, RequestPayload>({
+            query: (body) => ({
+                url: "/custom-requests",
+                method: "POST",
+                body,
+            }),
+        }),
     
-  }),
-  overrideExisting: true,
+    }),
+    overrideExisting: true,
 });
 
 export const { useSubmitRequestMutation } = requestApi;

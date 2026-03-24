@@ -202,7 +202,7 @@ export default function ListingRequestModal({
                                     type="submit"
                                     disabled={isLoading}
                                     className="mt-0 border border-primary text-primary bg-transparent hover:bg-primary hover:text-white font-normal rounded-md transition-colors duration-300 px-6 flex items-center gap-2"
-                                    >
+                                >
                                     {isLoading && <Loader2 className="w-4 h-4 animate-spin" />}
                                     Send Request
                                 </Button>

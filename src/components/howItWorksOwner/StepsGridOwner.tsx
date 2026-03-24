@@ -7,7 +7,7 @@ const ownerSteps = [
     {
         id: "log-in-homeowner",
         title: "Log in as a Homeowner",
-        subtitle: "Access your dashboard",
+        subtitle: "Access your account",
         image: "/how-it-works/owner/image-1.png",
     },
     {

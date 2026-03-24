@@ -156,7 +156,7 @@ OPENDOOR introduces smartVIEW , a completely new way of viewing properties onlin
                         {
                             question: "How long does the approval process take?",
                             answer:
-                "The approval process usually takes up to 24 hours. Once approved, you will be notified on your dashboard and contacted by a OPENDOOR letting expert.",
+                "The approval process usually takes up to 24 hours. Once approved, you will be notified and contacted by a OPENDOOR letting expert.",
                         },
                         {
                             question: "Are the rents shown on OPENDOOR negotiable?",

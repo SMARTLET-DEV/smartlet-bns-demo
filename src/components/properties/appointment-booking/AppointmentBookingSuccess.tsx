@@ -92,28 +92,16 @@ const AppointmentBookingSuccess = ({
                     </div>
                 </div>
                 <DialogFooter>
-                    <div className="w-full grid grid-cols-2 gap-5 justify-between">
-                        {!showGoToDashboard && <div></div>}
+                    <div className="w-full flex justify-center">
                         <Button
                             variant="outline"
+                            className="w-full"
                             onClick={() =>
                                 dispatch(setAppointmentBookingSuccess(false))
                             }
                         >
                             Close
                         </Button>
-                        {showGoToDashboard && (
-                            <Button
-                                onClick={() => {
-                                    dispatch(
-                                        setAppointmentBookingSuccess(false)
-                                    );
-                                    router.push("/appointments");
-                                }}
-                            >
-                                Go to Dashboard
-                            </Button>
-                        )}
                     </div>
                 </DialogFooter>
             </DialogContent>

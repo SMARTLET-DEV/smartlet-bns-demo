@@ -106,24 +106,16 @@ const ApplyForRentSuccess = () => {
                 </div>
             </div>
             <DialogFooter>
-                <div className="w-full grid grid-cols-2 gap-5 justify-between">
+                <div className="w-full flex justify-center">
                     <Button
                         variant="outline"
+                        className="w-full"
                         onClick={() => {
                             dispatch(clearRentalApplication());
                             dispatch(setApplyForRentSuccess(false));
                         }}
                     >
                         Close
-                    </Button>
-                    <Button
-                        onClick={() => {
-                            dispatch(clearRentalApplication());
-                            dispatch(setApplyForRentSuccess(false));
-                            router.push("/rented-property");
-                        }}
-                    >
-                        Go to Dashboard
                     </Button>
                 </div>
             </DialogFooter>

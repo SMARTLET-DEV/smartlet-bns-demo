@@ -181,7 +181,7 @@ const propertyApi = baseApi.injectEndpoints({
       queryFn: (filters) => {
         let filtered = dummyProperties;
         if (filters.propertyType) {
-          filtered = filtered.filter(p => p.propertyType === filters.propertyType);
+          filtered = filtered.filter(p => p.propertyType.toLowerCase() === String(filters.propertyType).toLowerCase());
         }
         return { data: { properties: filtered, pagination: { totalCount: filtered.length } } };
       },
@@ -189,9 +189,9 @@ const propertyApi = baseApi.injectEndpoints({
     getFilteredPropertiesWithQuery: builder.query<any, string>({
       queryFn: (queryString) => {
         let filtered = dummyProperties;
-        if (queryString.includes("COMMERCIAL")) {
+        if (queryString.toLowerCase().includes("commercial")) {
            filtered = filtered.filter(p => p.propertyType === "COMMERCIAL");
-        } else if (queryString.includes("RESIDENTIAL")) {
+        } else if (queryString.toLowerCase().includes("residential")) {
            filtered = filtered.filter(p => p.propertyType === "RESIDENTIAL");
         }
         return { data: { properties: filtered, pagination: { totalCount: filtered.length } } };
